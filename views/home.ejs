@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID-19 Statistics</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body style="background-color: #2d2715">
+    <nav
+      class="navbar navbar-expand-lg bg-secondary border-left-0 border-right-0 border border-white border-5 p-5"
+    >
+      <a class="h3 active text-uppercase mr-5" href="/">COVID-19 Statistics</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ml-5" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link h5 text-white m-lg-3 text-capitalize"
+              target="_blank"
+              href="https://innocent-niyonzima.vercel.app/#About-me"
+              >About</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link h5 text-white m-lg-3 text-capitalize"
+              target="_blank"
+              href="https://innocent-niyonzima.vercel.app/"
+              >Portfolio</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link h5 text-white m-lg-3 text-capitalize"
+              target="_blank"
+              href="https://innocent-niyonzima.vercel.app/#contact-me"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center">
+        <div class="ml-3 mr-3">
+          <a
+            href="https://www.linkedin.com/innocentus8"
+            target="_blank"
+            class="text-white"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <div class="ml-3 mr-3">
+          <a
+            href="https://www.x.com/innocentus8"
+            target="_blank"
+            class="text-white"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        <div class="ml-3 mr-3">
+          <a
+            href="https://www.github.com/Rwandantechy"
+            target="_blank"
+            class="text-white ml-2"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div>
+          <img
+            src="images/me.jpg"
+            alt="Profile Picture"
+            class="rounded-circle mr-2"
+            width="40"
+            height="40"
+          />
+        </div>
+      </div>
+    </nav>
+    <div class="mt-2">
+      <form action="/country" class="d-flex container" method="post">
+        <div class="form-group col-10">
+          <label class="text-white display-4" for="countrySelect"
+            >Select a Country:</label
+          >
+          <select
+            class="form-control"
+            name="selectedCountry"
+            id="countrySelect"
+          >
+            <% data.forEach(country => { %>
+            <option value="<%= country.country %>">
+              <%= country.country %>
+            </option>
+            <% }); %>
+          </select>
+        </div>
+        <div>
+          <button
+            style="margin-top: 75px"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Get Details
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row" id="country-cards">
+        <% data.forEach(country => { %>
+        <div class="col-md-4 mb-3">
+          <div class="card border border-warning">
+            <img
+              src="<%= country.countryInfo.flag %>"
+              class="card-img-top"
+              width="100%"
+              height="200"
+              alt="<%= country.country %> Flag"
+            />
+            <hr />
+            <div class="card-body">
+              <h5 class="card-title"><%= country.country %></h5>
+              <p class="h4">
+                Cases:<span style="color: #ffc107">
+                  <%= country.cases.toLocaleString() %>
+                </span>
+              </p>
+              <p class="h4">
+                Deaths:
+                <span style="color: #dc3546">
+                  <%= country.deaths.toLocaleString() %></span
+                >
+              </p>
+              <p class="h4">
+                Recovered:
+                <span style="color: green"
+                  ><%= country.recovered.toLocaleString() %>
+                </span>
+              </p>
+              <a href="<%= country.country %>" class="btn btn-success"
+                >View More</a
+              >
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

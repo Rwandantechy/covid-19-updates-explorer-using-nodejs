@@ -1,0 +1,47 @@
+{
+  "name": "covid-19-statistics_using_apis",
+  "version": "1.0.0",
+  "description": "COVID-19 Stats Explorer is a powerful application that provides real-time COVID-19 statistics for every country, offering a comprehensive and up-to-date view of the global pandemic. With a user-friendly interface, the app enables users to access vital information, including the number of cases, deaths, and recoveries, with the option to store historical data. Stay informed and make data-driven decisions with COVID-19 Stats Explorer, a valuable tool for individuals, researchers, and healthcare professionals worldwide.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Covid-19-Statistics_using_APIs"
+  },
+  "keywords": [
+    "COVID-19",
+    "Stats",
+    "Real-time",
+    "Data",
+    "Global",
+    "Pandemic",
+    "Country-specific",
+    "Statistics",
+    "User-friendly",
+    "Interface",
+    "Data",
+    "Visualization",
+    "Historical",
+    "Data",
+    "Healthcare",
+    "Professionals",
+    "Data-driven",
+    "Decisions",
+    "Real-time",
+    "Updates"
+  ],
+  "author": "Innocent Niyonzima",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.5.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.3"
+  }
+}

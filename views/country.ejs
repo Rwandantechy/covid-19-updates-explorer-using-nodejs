@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID-19 Statistics - <%= country.country %></title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <style>
+      body {
+        background-color: #2d2715;
+        color: white;
+      }
+      .custom-shadow {
+        box-shadow: 0 0 10px rgba(231, 228, 228, 0.788);
+      }
+      .custom-shadow1 {
+        box-shadow: 0 0 10px rgba(231, 228, 228, 0.502);
+      }
+      .country-info,
+      .covid-stats,
+      .additional-stats {
+        font-size: 32px;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .text-white {
+        color: white;
+      }
+
+      h1 {
+        font-size: 36px;
+        text-align: center;
+      }
+
+      .flag-img {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg bg-secondary border-left-0 border-right-0 border border-white border-5 p-5"
+    >
+      <a class="h3 text-white text-uppercase mr-5" href="/"
+        >COVID-19 Statistics</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ml-5" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link h5 text-info m-lg-3 text-capitalize"
+              target="_blank"
+              href="https://innocent-niyonzima.vercel.app/#About-me"
+              >About</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link h5 text-info m-lg-3 text-capitalize"
+              target="_blank"
+              href="https://innocent-niyonzima.vercel.app/"
+              >Portfolio</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link h5 text-info m-lg-3 text-capitalize"
+              target="_blank"
+              href="https://innocent-niyonzima.vercel.app/#contact-me"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center">
+        <div class="ml-3 mr-3">
+          <a
+            href="https://www.linkedin.com/innocentus8"
+            target="_blank"
+            class="text-white"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <div class="ml-3 mr-3">
+          <a
+            href="https://www.x.com/innocentus8"
+            target="_blank"
+            class="text-white"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        <div class="ml-3 mr-3">
+          <a
+            href="https://www.github.com/Rwandantechy"
+            target="_blank"
+            class="text-white ml-2"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div>
+          <img
+            src="images/me.jpg"
+            alt="Profile Picture"
+            class="rounded-circle mr-2"
+            width="40"
+            height="40"
+          />
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-3 custom-shadow1 p-4">
+      <h1><%= country.country %>'s Updates on Covid-19. <br></h1>
+      <div class="country-info">
+        <img
+          src="<%= country.countryInfo.flag %>"
+          alt="<%= country.country %> Flag"
+          class="flag-img"
+          width="auto"
+          height="400"
+        />
+
+        <p>
+          Population:
+          <span style="color: #ffc107"
+            ><%= country.population.toLocaleString() %></span
+          >
+        </p>
+        <p>
+          Continent:
+          <span style="color: #28a745"><%= country.continent %></span>
+        </p>
+      </div>
+
+      <div
+        class="bg-body d-flex justify-content-around custom-shadow rounded mb-4"
+      >
+        <div class="covid-stats">
+          <p>
+            Total Cases:
+            <span style="color: #dc3545"
+              ><%= country.cases.toLocaleString() %></span
+            >
+          </p>
+          <p>
+            Total Deaths:
+            <span style="color: #dc3545"
+              ><%= country.deaths.toLocaleString() %></span
+            >
+          </p>
+          <p>
+            Total Recovered:
+            <span style="color: #28a745"
+              ><%= country.recovered.toLocaleString() %></span
+            >
+          </p>
+        </div>
+        <div class="additional-stats">
+          <p>
+            Cases Per Million:
+            <span style="color: #ffc107"
+              ><%= country.casesPerOneMillion.toLocaleString() %></span
+            >
+          </p>
+          <p>
+            Deaths Per Million:
+            <span style="color: #dc3545"
+              ><%= country.deathsPerOneMillion.toLocaleString() %></span
+            >
+          </p>
+          <p>
+            Tests Per Million:
+            <span style="color: #ffc107"
+              ><%= country.testsPerOneMillion.toLocaleString() %></span
+            >
+          </p>
+          <p>
+            activePerOneMillion:
+            <span style="color: #f3d31c"
+              ><%= country.activePerOneMillion.toLocaleString()  %></span
+            >
+          </p>
+
+          <p>
+            recoveredPerOneMillion:
+            <span style="color: #07ff28"
+              ><%= country.recoveredPerOneMillion.toLocaleString() %></span
+            >
+          </p>
+                
+        </div>
+      </div>
+      <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
